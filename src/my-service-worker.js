@@ -1,15 +1,11 @@
 self.addEventListener("fetch", function (event) {
   console.log("event.request.url", event.request.url);
   const url = new URL(event.request.url);
-  if (url.pathname.startsWith("/cache-fs")) {
-    console.log("true");
+  if (url.host === "cache-fs") {
     event.respondWith(
       (async () => {
-        const cache = await caches.open("v1");
-        console.log(cache);
-        const backgroundFileResponse = await cache.match("/user-background");
-        console.log(backgroundFileResponse);
-        return backgroundFileResponse;
+        const cache = await caches.open("cache-fs");
+        return cache.match(url);
       })()
     );
   }
