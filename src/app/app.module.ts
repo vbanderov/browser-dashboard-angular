@@ -4,9 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SettingsComponent } from './settings/settings.component';
+import { TopSitesComponent } from './top-sites/top-sites.component';
 
 @NgModule({
-  declarations: [AppComponent, SettingsComponent],
+  declarations: [AppComponent, SettingsComponent, TopSitesComponent],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('my-service-worker.js', {

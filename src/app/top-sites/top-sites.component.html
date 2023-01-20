@@ -1,0 +1,9 @@
+<ul>
+  <ng-template ngFor [ngForOf]="topSites" let-topSite let-i="index">
+    <li>
+      <a [href]="topSite.url" target="_blank"
+        >{{ i + 1 }}.{{ topSite.title }}</a
+      >
+    </li>
+  </ng-template>
+</ul>
