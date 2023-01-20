@@ -13,7 +13,6 @@ self.addEventListener("fetch", function (event) {
 
 self.addEventListener("install", function () {
   console.log("install");
-  self.skipWaiting();
 });
 
 self.addEventListener("activate", function () {
