@@ -5,9 +5,17 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SettingsComponent } from './settings/settings.component';
 import { TopSitesComponent } from './top-sites/top-sites.component';
+import { GridstackComponent } from './common/gridstack.component';
+import { GridstackItemComponent } from './common/gridstack-item.component';
 
 @NgModule({
-  declarations: [AppComponent, SettingsComponent, TopSitesComponent],
+  declarations: [
+    AppComponent,
+    SettingsComponent,
+    TopSitesComponent,
+    GridstackComponent,
+    GridstackItemComponent,
+  ],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('my-service-worker.js', {

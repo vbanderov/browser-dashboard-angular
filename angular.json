@@ -32,7 +32,10 @@
               "src/manifest.json",
               "src/hello.html"
             ],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/gridstack/dist/gridstack.css"
+            ],
             "scripts": [],
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"

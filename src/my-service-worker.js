@@ -19,4 +19,4 @@ self.addEventListener("activate", function () {
   console.log("activate");
 });
 
-importScripts("/ngsw-worker.js");
+// importScripts("/ngsw-worker.js");
