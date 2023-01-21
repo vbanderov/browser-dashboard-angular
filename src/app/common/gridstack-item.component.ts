@@ -17,8 +17,13 @@ import { GridItemHTMLElement, GridStackNode } from 'gridstack';
 @Component({
   selector: 'app-gridstack-item',
   template: ` <div class="grid-stack-item-content bg-white/90">
-    {{ options.content }}
-    <ng-content></ng-content>
+    <div *ngIf="options.content !== 'top-sites'; else component">
+      {{ options.content }}
+    </div>
+
+    <ng-template #component>
+      <app-top-sites></app-top-sites>
+    </ng-template>
   </div>`,
   styles: [
     `

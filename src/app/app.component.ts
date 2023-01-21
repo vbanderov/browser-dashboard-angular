@@ -32,8 +32,8 @@ export class AppComponent {
   };
   constructor(cacheFsService: CacheFsService) {
     // give them content and unique id to make sure we track them during changes below...
-    this.items.forEach((w) => {
-      w.content = `item ${ids}`;
+    this.items.forEach((w, i) => {
+      w.content = i ? `item ${ids}` : 'top-sites';
       w.id = String(ids++);
     });
   }
