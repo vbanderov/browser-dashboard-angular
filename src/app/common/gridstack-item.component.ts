@@ -8,8 +8,11 @@ import {
   Component,
   ElementRef,
   Input,
+  ViewChild,
 } from '@angular/core';
 import { GridItemHTMLElement, GridStackNode } from 'gridstack';
+import { TopSitesComponent } from '../top-sites/top-sites.component';
+import { WidgetHostDirective } from '../widget-host.directive';
 
 /**
  * HTML Component Wrapper for gridstack items, in combination with GridstackComponent for parent grid
@@ -17,13 +20,15 @@ import { GridItemHTMLElement, GridStackNode } from 'gridstack';
 @Component({
   selector: 'app-gridstack-item',
   template: ` <div class="grid-stack-item-content bg-white/90">
-    <div *ngIf="options.content !== 'top-sites'; else component">
+    <!-- <div *ngIf="options.content !== 'top-sites'; else component">
       {{ options.content }}
     </div>
 
     <ng-template #component>
       <app-top-sites></app-top-sites>
-    </ng-template>
+    </ng-template> -->
+
+    <ng-template appWidgetHost></ng-template>
   </div>`,
   styles: [
     `
@@ -35,6 +40,21 @@ import { GridItemHTMLElement, GridStackNode } from 'gridstack';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GridstackItemComponent {
+  @ViewChild(WidgetHostDirective, { static: true })
+  widgetHost!: WidgetHostDirective;
+
+  ngOnInit(): void {
+    this.loadComponent();
+  }
+
+  loadComponent() {
+    const viewContainerRef = this.widgetHost.viewContainerRef;
+    viewContainerRef.clear();
+
+    const componentRef = viewContainerRef.createComponent(TopSitesComponent);
+    // componentRef.instance.data = adItem.data;
+  }
+
   /** list of options for creating/updating this item */
   @Input() public set options(val: GridStackNode) {
     if (this.el.gridstackNode?.grid) {

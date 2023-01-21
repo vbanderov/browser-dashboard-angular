@@ -7,6 +7,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { TopSitesComponent } from './top-sites/top-sites.component';
 import { GridstackComponent } from './common/gridstack.component';
 import { GridstackItemComponent } from './common/gridstack-item.component';
+import { WidgetHostDirective } from './widget-host.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { GridstackItemComponent } from './common/gridstack-item.component';
     TopSitesComponent,
     GridstackComponent,
     GridstackItemComponent,
+    WidgetHostDirective,
   ],
   imports: [
     BrowserModule,
