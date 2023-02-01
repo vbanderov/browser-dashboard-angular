@@ -4,11 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SettingsComponent } from './settings/settings.component';
-import { TopSitesComponent } from './top-sites/top-sites.component';
-import { GridstackComponent } from './common/gridstack.component';
-import { GridstackItemComponent } from './common/gridstack-item.component';
+import { TopSitesComponent } from './widgets/top-sites/top-sites.component';
+import { GridstackItemComponent } from './layout/gridstack-item.component';
 import { WidgetHostDirective } from './widget-host.directive';
 import { LayoutComponent } from './layout/layout.component';
+import { GridstackComponent } from './layout/gridstack.component';
 
 @NgModule({
   declarations: [

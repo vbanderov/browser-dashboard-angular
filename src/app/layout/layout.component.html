@@ -1,11 +1,11 @@
 <app-gridstack
   #gridComp
-  [options]="gridOptions"
+  [options]="layoutService.gridOptions"
   (changeGS)="onChange($event)"
   (resizestop)="onResizeStop($event)"
 >
   <app-gridstack-item
-    *ngFor="let n of items$ | async; trackBy: identify"
+    *ngFor="let n of layoutService.items$ | async; trackBy: identify"
     [options]="n"
   >
     {{ n.content }}

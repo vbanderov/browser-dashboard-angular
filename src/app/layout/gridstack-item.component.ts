@@ -11,7 +11,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { GridItemHTMLElement, GridStackNode } from 'gridstack';
-import { TopSitesComponent } from '../top-sites/top-sites.component';
+import { TopSitesComponent } from '../widgets/top-sites/top-sites.component';
 import { WidgetHostDirective } from '../widget-host.directive';
 
 /**
