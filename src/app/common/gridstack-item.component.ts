@@ -20,14 +20,6 @@ import { WidgetHostDirective } from '../widget-host.directive';
 @Component({
   selector: 'app-gridstack-item',
   template: ` <div class="grid-stack-item-content bg-white/90">
-    <!-- <div *ngIf="options.content !== 'top-sites'; else component">
-      {{ options.content }}
-    </div>
-
-    <ng-template #component>
-      <app-top-sites></app-top-sites>
-    </ng-template> -->
-
     <ng-template appWidgetHost></ng-template>
   </div>`,
   styles: [
@@ -51,17 +43,14 @@ export class GridstackItemComponent {
     const viewContainerRef = this.widgetHost.viewContainerRef;
     viewContainerRef.clear();
 
-    const componentRef = viewContainerRef.createComponent(TopSitesComponent);
-    // componentRef.instance.data = adItem.data;
+    if (this.options.content === TopSitesComponent.name) {
+      const componentRef = viewContainerRef.createComponent(TopSitesComponent);
+    }
   }
 
   /** list of options for creating/updating this item */
   @Input() public set options(val: GridStackNode) {
-    if (this.el.gridstackNode?.grid) {
-      // already built, do an update...
-      this.el.gridstackNode.grid.update(this.el, val);
-    } else {
-      // store our custom element in options so we can update it and not re-create a generic div!
+    if (!this.el.gridstackNode?.grid) {
       val.el = this.el;
       this._options = val;
     }

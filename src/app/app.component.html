@@ -1,29 +1,13 @@
 <div class="w-full h-screen p-4">
   <h1 class="text-3xl font-bold underline">My Dashboard</h1>
   <app-settings></app-settings>
-  <app-top-sites></app-top-sites>
 
-  <p>
-    <b>COMPONENT ngFor</b>: Most complete example that uses Component wrapper
-    for grid and gridItem
-  </p>
-  <button (click)="addNgFor()">add item</button>
+  <!-- <button (click)="addNgFor()">add item</button>
   <button (click)="deleteNgFor()">remove item</button>
   <button (click)="modifyNgFor(gridComp)">modify item</button>
-  <button (click)="newLayoutNgFor()">new layout</button>
-  <app-gridstack
-    #gridComp
-    [options]="gridOptions"
-    (changeGS)="onChange($event)"
-    (resizestop)="onResizeStop($event)"
-  >
-    <app-gridstack-item
-      *ngFor="let n of items; trackBy: identify"
-      [options]="n"
-    >
-      {{ n.content }}
-    </app-gridstack-item>
-  </app-gridstack>
+  <button (click)="newLayoutNgFor()">new layout</button> -->
+
+  <app-layout></app-layout>
 </div>
 
 <div
