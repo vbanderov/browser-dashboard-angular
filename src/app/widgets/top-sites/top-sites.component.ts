@@ -1,34 +1,23 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { topSitesDemo } from './constants';
 
 @Component({
   selector: 'app-top-sites',
   templateUrl: './top-sites.component.html',
   styleUrls: ['./top-sites.component.scss'],
 })
-export class TopSitesComponent {
+export class TopSitesComponent implements OnInit {
   public readonly chrome = window.chrome;
-  topSites: any[] = [
-    { title: 'LinkedIn', url: 'https://linkedin.com/' },
-    {
-      title: 'Online Courses - Learn Anything, On Your Schedule | Udemy',
-      url: 'https://udemy.com/',
-    },
-    {
-      title: 'Gmail',
-      url: 'https://gmail.com/',
-    },
-    {
-      title: 'Amazon.ca: Low Prices – Fast Shipping – Millions of Items',
-      url: 'https://amazon.ca/',
-    },
-    { title: 'WhatsApp', url: 'https://web.whatsapp.com/' },
-  ];
+  public topSites = topSitesDemo;
+
+  constructor(private ref: ChangeDetectorRef) {}
 
   ngOnInit() {
     if (!this.chrome?.topSites) return;
 
     this.chrome.topSites.get().then((res) => {
       this.topSites = res as any[];
+      this.ref.detectChanges();
     });
   }
 }

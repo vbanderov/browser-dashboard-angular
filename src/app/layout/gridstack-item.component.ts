@@ -11,8 +11,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { GridItemHTMLElement, GridStackNode } from 'gridstack';
-import { TopSitesComponent } from '../widgets/top-sites/top-sites.component';
 import { WidgetHostDirective } from '../widget-host.directive';
+import { widgetMap, WidgetType } from '../widgets';
 
 /**
  * HTML Component Wrapper for gridstack items, in combination with GridstackComponent for parent grid
@@ -43,8 +43,10 @@ export class GridstackItemComponent {
     const viewContainerRef = this.widgetHost.viewContainerRef;
     viewContainerRef.clear();
 
-    if (this.options.content === TopSitesComponent.name) {
-      const componentRef = viewContainerRef.createComponent(TopSitesComponent);
+    const widget = widgetMap[this.options.content as WidgetType];
+
+    if (widget) {
+      const componentRef = viewContainerRef.createComponent(widget);
     }
   }
 
