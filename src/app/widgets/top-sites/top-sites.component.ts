@@ -20,4 +20,10 @@ export class TopSitesComponent implements OnInit {
       this.ref.detectChanges();
     });
   }
+
+  public getFaviconUrl(url: string) {
+    if (!this.chrome.runtime) return 'favicon.ico';
+
+    return `/_favicon/?pageUrl=${encodeURIComponent(url)}&size=32`;
+  }
 }

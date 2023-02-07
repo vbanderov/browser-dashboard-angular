@@ -1,9 +1,15 @@
-<ul class="text-lg">
+<div class="flex flex-row justify-center items-center flex-wrap gap-2 p-2">
   <ng-template ngFor [ngForOf]="topSites" let-topSite let-i="index">
-    <li>
-      <a [href]="topSite.url" target="_blank"
-        >{{ i + 1 }}.{{ topSite.title }}</a
+    <a [href]="topSite.url" target="_blank">
+      <div
+        class="w-24 h-24 flex flex-col items-center space-y-1 bg-slate-400 justify-center rounded-sm p-1"
       >
-    </li>
+        <img [src]="getFaviconUrl(topSite.url)" />
+        <span
+          class="text-center whitespace-nowrap text-ellipsis overflow-hidden max-w-full"
+          >{{ topSite.title }}</span
+        >
+      </div>
+    </a>
   </ng-template>
-</ul>
+</div>
