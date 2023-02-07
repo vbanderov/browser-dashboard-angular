@@ -1,4 +1,25 @@
-<div>
-  <label for="file">Choose Background File</label>
+<div
+  [ngClass]="{
+    'translate-x-72': !showSettings
+  }"
+  class="fixed right-0 top-0 bottom-0 w-72 bg-slate-500 transition-transform duration-600 p-2 z-10 space-y-4"
+>
+  <div class="text-xl">Settings</div>
+  <hr />
+
+  <div class="text-lg">Background</div>
   <input type="file" name="background" (change)="confirmBackground($event)" />
+  <hr />
 </div>
+
+<button
+  class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold rounded inline-flex p-1 items-center bottom-[5vh] right-[5vh] absolute z-10"
+  (click)="showSettings = !showSettings"
+>
+  <ng-icon
+    class="transition-transform duration-600"
+    [ngClass]="{ 'rotate-45': showSettings }"
+    name="matSettings"
+    size="32px"
+  ></ng-icon>
+</button>

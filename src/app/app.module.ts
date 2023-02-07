@@ -9,6 +9,8 @@ import { GridstackItemComponent } from './layout/gridstack-item.component';
 import { WidgetHostDirective } from './widget-host.directive';
 import { LayoutComponent } from './layout/layout.component';
 import { GridstackComponent } from './layout/gridstack.component';
+import { NgIconsModule } from '@ng-icons/core';
+import { matSettings } from '@ng-icons/material-icons/baseline';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { GridstackComponent } from './layout/gridstack.component';
       registrationStrategy: 'registerWhenStable:30000',
       // scope: '/cache-fs/',
     }),
+    NgIconsModule.withIcons({ matSettings }),
   ],
   providers: [],
   bootstrap: [AppComponent],

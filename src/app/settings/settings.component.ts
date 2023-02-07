@@ -7,6 +7,8 @@ import { CacheFsService } from '../common/cache-fs.service';
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent {
+  public showSettings = false;
+
   constructor(private cacheFsService: CacheFsService) {}
 
   public async confirmBackground(event: Event): Promise<void> {
@@ -16,5 +18,7 @@ export class SettingsComponent {
     }
 
     await this.cacheFsService.put('user-background', file);
+
+    window.location.reload();
   }
 }
